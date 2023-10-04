@@ -8,6 +8,9 @@ This is an experiment to show how an AI-augmented knowledge management system ca
 
 Reading Notes AI uses the recently released model from Mistral AI and runs locally (i.e. offline).
 
+## Disclaimer
+
+This is still experimental: hallucinations are to be expected.
 
 ## How does it work ?
 
