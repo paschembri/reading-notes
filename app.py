@@ -52,20 +52,16 @@ def get_files(directory):
 
 @dataclass
 class Document:
-    classification: str
-    entity: str
-    top_5_insights: List[str]
+    document_classification: str
+    document_entity: str
     top_5_keywords: List[str]
-    summary: str
+    document_summary: str
 
     def to_markdown(self):
-        markdown = f"# {self.classification}\n\n"
-        markdown += f"**Entity:** {self.entity}\n\n"
-        markdown += f"**Summary:** {self.summary}\n\n"
+        markdown = f"**Classification:** {self.document_classification}\n\n"
+        markdown += f"**Entity:** {self.document_entity}\n\n"
+        markdown += f"**Summary:** {self.document_summary}\n\n"
         markdown += f"**Keywords:** {', '.join(self.top_5_keywords)}\n\n"
-        markdown += f"**Key Insights:**\n\n"
-        for insight in self.top_5_insights:
-            markdown += f"- {insight}\n"
 
         return markdown
 
@@ -74,16 +70,30 @@ class Document:
         with LLamaParser(Document, model_path=model_path) as parser:
             splitter = TokenSplitter(chunk_size=3000)
             for filename in get_files(directory):
+                if "reading_notes.txt" in filename:
+                    continue
+
                 print(f"Parsing file {filename}")
-                elements = partition(
-                    filename=filename,
-                    strategy="auto",
-                )
+                try:
+                    elements = partition(
+                        filename=filename,
+                        strategy="auto",
+                    )
+                except ValueError:
+                    print(f"Skipping {filename}")
+                    continue
 
                 text = "\n\n".join(str(e) for e in elements)
                 extract = next(splitter.chunkify(text))
+
+                formatted_extract = f"""
+                FILENAME: `{filename}`
+                CONTENT:```{extract}```
+
+                > Parse and summarize information"""
+
                 print(f"Indexing file {filename}")
-                yield parser.parse(extract)
+                yield filename, parser.parse(formatted_extract)
                 print("Done.")
 
 
@@ -97,9 +107,10 @@ def main():
     notes_file = os.path.join(args.dir_path, "reading_notes.txt")
 
     with open(notes_file, "a") as file:
-        for document in Document.from_directory(args.dir_path):
+        for filename, document in Document.from_directory(args.dir_path):
             markdown = document.to_markdown()
             file.write(markdown)
+            file.write("\nFile: {}\n".format(filename))
             file.write("\n\n---\n\n")
             file.flush()
 

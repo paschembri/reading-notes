@@ -1,0 +1,24 @@
+**Classification:** image
+
+**Entity:** Yann LeCun
+
+**Summary:** En réponse a @NicoGrassetto et @stanislavfort
+Should | conclude that you are a YLC hater from this single statement?
+LLMs are useful, as I've said many times.
+Auto-regressive LLMs have flaws that are not fixable other than by making them non auto-regressive.
+They are missing essential characteristics to reach Human-Level Al.
+0
+2
+ty
+QO
+28
+y1316b
+
+**Keywords:** Yann LeCun, document classification, image, document entity, document summary
+
+
+File: ./ylecun-autoregressive-not-fixable.png
+
+
+---
+
