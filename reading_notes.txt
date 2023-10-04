@@ -1,0 +1,70 @@
+**Classification:** license
+
+**Entity:** Apache Software Foundation
+
+**Summary:** Apache License 2.0 is a permissive license that allows for the free use, modification, and distribution of licensed software.
+
+**Keywords:** Apache, License, 2.0, permissive, software
+
+
+File: ./LICENSE
+
+
+---
+
+**Classification:** file
+
+**Entity:** requirements.txt
+
+**Summary:** This document contains a list of requirements for a machine learning model.
+
+**Keywords:** requirements, list, machine, learning, model
+
+
+File: ./requirements.txt
+
+
+---
+
+**Classification:** article
+
+**Entity:** company
+
+**Summary:** The company has been around for a long time, but it's not clear how long. It's also unclear what the company does.
+
+**Keywords:** company, long, time, clear, what
+
+
+File: ./README.md
+
+
+---
+
+**Classification:** file
+
+**Entity:** file
+
+**Summary:** This file is a GitIgnore file for Python projects. It contains various directories, files, and patterns to be ignored by Git.
+
+**Keywords:** gitignore, python, directories, files, patterns
+
+
+File: ./.gitignore
+
+
+---
+
+**Classification:** Article
+
+**Entity:** The Bloke
+
+**Summary:** The Bloke is a developer who creates LLM models.
+
+**Keywords:** LLM, models, developer, creates, The Bloke
+
+
+File: ./app.py
+
+
+---
+
