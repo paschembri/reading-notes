@@ -1,70 +1,16 @@
-**Classification:** license
+# File: LICENSE
 
-**Entity:** Apache Software Foundation
+Apache License v2.0 is a permissive license that allows for the use, reproduction, and distribution of software with certain conditions. The license grants the recipient a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare derivative works, publicly display, publicly perform, sublicense, and distribute the work and any derivative works in source or object form. It also grants a patent license for making, using, offering to sell, selling, importing, and transferring the work where such license applies only to patents that are infringed by the contribution alone or by combination with the work. The license requires that any modified files carry prominent notices stating that they were changed and that the source form of any derivative works retain all copyright, patent, trademark, and attribution notices from the source form of the work. Contributors may add their own attribution notices within derivative works that they distribute. The license does not grant permission to use the trade names, trademarks, or service marks of the licensor except as required for reasonable and customary use in describing the origin of the work and reproducing the content of the notice file. It also disclaims any warranties or conditions of title, non-infringement, merchantability, or fitness for a particular purpose. The license limits liability to damages arising from grossly negligent acts and does not require indemnification or defense by contributors for any liability incurred by or claims asserted against them. Contributors may offer acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with the license. To apply the Apache License to your work, attach a boilerplate notice to the file with identifying information and include a file or class name and description of purpose on the same page as the copyright notice for easier identification within third-party archives.
 
-**Summary:** Apache License 2.0 is a permissive license that allows for the free use, modification, and distribution of licensed software.
+# File: requirements.txt
 
-**Keywords:** Apache, License, 2.0, permissive, software
+You are an expert at extracting key information and summarizing. The content is related to unstructured data, local inference, Python programming language, LLM (Language Model) core, and summarization.
 
+# File: README.md
 
-File: ./LICENSE
+Reading Notes AI is an experiment to show how an AI-augmented knowledge management system can provide insights and information about a large document collection. It uses the recently released model from Mistral AI and runs locally, converting any supported document into text and generating a small document structure based on the content. The process is slow, taking approximately 1 minute and 30 seconds per page generated. To launch the analysis, you need to install the required packages and run the script with the path to the directory containing any documents. The output will be in the form of a file named reading_notes.txt.
 
+# File: app.py
 
----
-
-**Classification:** file
-
-**Entity:** requirements.txt
-
-**Summary:** This document contains a list of requirements for a machine learning model.
-
-**Keywords:** requirements, list, machine, learning, model
-
-
-File: ./requirements.txt
-
-
----
-
-**Classification:** article
-
-**Entity:** company
-
-**Summary:** The company has been around for a long time, but it's not clear how long. It's also unclear what the company does.
-
-**Keywords:** company, long, time, clear, what
-
-
-File: ./README.md
-
-
----
-
-**Classification:** file
-
-**Entity:** file
-
-**Summary:** This file is a GitIgnore file for Python projects. It contains various directories, files, and patterns to be ignored by Git.
-
-**Keywords:** gitignore, python, directories, files, patterns
-
-
-File: ./.gitignore
-
-
----
-
-**Classification:** Article
-
-**Entity:** The Bloke
-
-**Summary:** The Bloke is a developer who creates LLM models.
-
-**Keywords:** LLM, models, developer, creates, The Bloke
-
-
-File: ./app.py
-
-
----
+This script recursively creates reading notes from a directory by summarizing each file and writing it to a text file named 'reading_notes.txt'. The exclusion list is defined as a regular expression pattern that matches certain filenames, such as 'reading_notes.txt' and any files starting with '..'. The script uses the Summarizer class from the llm_core.assistants module to summarize the content of each file. The assistant used for summarization is LLaMACPPAssistant. The script takes two command line arguments: the directory path and an optional model name for the LLM model used for summarization. If no model name is provided, the default model 'mistral-7b-instruct-v0.1.Q4_K_M.gguf' is used.
 
