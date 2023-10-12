@@ -14,15 +14,21 @@ This is still experimental: hallucinations are to be expected.
 
 ## How does it work ?
 
-I use the unstructured library to convert any supported document into text (it even works on images, see the `assets` directory), then I use Mistral AI Instruct to generate a small document structure based on the content:
+I use the unstructured library to convert any supported document into text (it even works on images, see the `assets` directory), then I use Mistral AI Instruct to generate a summary with PyLLMCore:
 
 ```python
-@dataclass
-class Document:
-    document_classification: str
-    document_entity: str
-    top_5_keywords: List[str]
-    document_summary: str
+from llm_core.assistants import Summarizer, LLaMACPPAssistant
+
+...
+
+summarizer = Summarizer(
+    model=args.model_name, assistant_cls=LLaMACPPAssistant
+)
+
+...
+
+summarizer.fast_summarize(content)
+
 ```
 
 ## Why is it slow ?
